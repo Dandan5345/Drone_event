@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="צילום רחפן מקצועי לאירועים מיוחדים - הצעות נישואין, ימי הולדת, סייב דה דייט ועוד. תיעוד אווירי מרהיב ובלתי נשכח.">
+    <title>שם העסק שלך - צילום רחפן לאירועים</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* --- CSS Styles --- */
+        /* --- כללי --- */
+        :root {
+            --primary-color: #0a4a7d; /* כחול עמוק */
+            --secondary-color: #f7a072; /* כתום-אפרסק */
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* גובה ה-navbar */
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text);
+            background-color: #fff;
+            direction: rtl; /* כיווניות עברית */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        /* קו מתחת לכותרת */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--light-bg);
+        }
+
+        /* --- כפתור CTA --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background-color: #e58a5a; /* גוון כהה יותר של הכתום */
+            color: var(--light-text);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* --- Header & Navbar --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: var(--primary-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color var(--transition-speed);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px; /* הפוך ל-margin-right בגלל RTL */
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width var(--transition-speed);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { /* הוספת קלאס active עם JS */
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: url('https://via.placeholder.com/1920x1080/0a4a7d/ffffff?text=Amazing+Drone+Background') no-repeat center center/cover;
+            height: 100vh; /* גובה מסך מלא */
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            padding-top: 80px; /* כדי לא להסתיר מתחת ל-navbar */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* שכבה כהה */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #eee; /* צבע טקסט בהיר יותר */
+        }
+
+        /* --- Services Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed), opacity 0.6s ease-out; /* Added opacity */
+            opacity: 0; /* Start hidden for animation */
+            transform: translateY(30px); /* Start lower for animation */
+        }
+
+        .service-card.visible { /* Class added by JS */
+             opacity: 1;
+             transform: translateY(0);
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-10px); /* Adjusted hover effect */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-section {
+            background-color: #fff; /* רקע לבן נקי לגלריה */
+        }
+
+        .gallery-section p {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed), filter var(--transition-speed);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 74, 125, 0.7); /* צבע ראשי עם שקיפות */
+            color: var(--light-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: blur(2px);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-cta {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0 auto;
+        }
+
+
+        /* --- About Us Section --- */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .about-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-values {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .about-values li {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-values i {
+            color: var(--secondary-color);
+            margin-left: 10px; /* הפוך ל-margin-right */
+            font-size: 1.2rem;
+            width: 20px; /* ליישור */
+            text-align: center;
+        }
+
+
+        /* --- Contact Section --- */
+        .contact-section {
+             background-color: var(--light-bg);
+        }
+
+        .contact-section p:first-of-type { /* פסקה ראשונה מתחת לכותרת */
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 40px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-form-wrapper {
+            flex: 2;
+        }
+
+        .contact-details {
+            flex: 1;
+            padding-right: 30px; /* הפוך ל-padding-left */
+            border-right: 1px solid #eee; /* הפוך ל-border-left */
+        }
+
+        .contact-details h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-details p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-left: 12px; /* הפוך ל-margin-right */
+            color: var(--secondary-color);
+            width: 20px; /* ליישור אייקונים */
+            text-align: center;
+        }
+
+        .contact-details a {
+            color: var(--dark-text);
+        }
+        .contact-details a:hover {
+            color: var(--primary-color);
+        }
+
+        #contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        #contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        #contact-form input[type="text"],
+        #contact-form input[type="email"],
+        #contact-form input[type="tel"],
+        #contact-form input[type="date"],
+        #contact-form select,
+        #contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-family: 'Assistant', sans-serif;
+            transition: border-color var(--transition-speed);
+        }
+
+        #contact-form input:focus,
+        #contact-form select:focus,
+        #contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(10, 74, 125, 0.2);
+        }
+
+        #contact-form textarea {
+            resize: vertical; /* אפשרות לשנות גובה */
+        }
+
+        #contact-form button[type="submit"] {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-left: 15px; /* הפוך ל-margin-right */
+            transition: color var(--transition-speed), transform var(--transition-speed);
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 0; /* אין צורך במרווח אם הוא מגיע אחרי section עם רקע */
+        }
+
+        footer p {
+            margin: 0;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            h2 {
+                font-size: 2.2rem;
+            }
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-image {
+                margin-bottom: 30px;
+                max-width: 350px; /* הקטנת תמונה */
+            }
+             .about-values {
+                text-align: right; /* יישור לימין במובייל */
+                 padding-right: 20px; /* הוספת ריווח לימין */
+            }
+             .contact-container {
+                flex-direction: column-reverse; /* טופס למעלה, פרטים למטה */
+                padding: 30px;
+            }
+            .contact-details {
+                padding-right: 0; /* בטל padding */
+                border-right: none; /* בטל קו הפרדה */
+                margin-bottom: 30px;
+                text-align: center;
+            }
+             .contact-details p {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* הסתר תפריט רגיל */
+                flex-direction: column;
+                position: absolute;
+                top: 80px; /* מתחת ל-navbar */
+                right: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.98);
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                z-index: 999; /* Ensure it's above other content */
+            }
+            .nav-links.active {
+                display: flex; /* הצג תפריט במצב פעיל */
+            }
+            .nav-links li {
+                margin: 15px 0;
+                margin-left: 0; /* בטל margin צדדי */
+            }
+            .mobile-menu-toggle {
+                display: block; /* הצג כפתור המבורגר */
+            }
+             .hero-content h1 {
+                font-size: 2.8rem;
+            }
+             .hero-content p {
+                font-size: 1.2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr; /* עמודה אחת במובייל */
+            }
+            .gallery-grid {
+                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+             html {
+                scroll-padding-top: 70px; /* התאם ל-navbar קטן יותר אם צריך */
+            }
+            .navbar .container {
+                 height: 70px;
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+             h2 {
+                font-size: 2rem;
+            }
+             .hero-content h1 {
+                font-size: 2.2rem;
+            }
+             .hero-content p {
+                font-size: 1.1rem;
+            }
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .contact-container {
+                padding: 20px;
+            }
+            #contact-form input,
+            #contact-form select,
+            #contact-form textarea {
+                padding: 10px;
+            }
+            .about-values {
+                 padding-right: 10px; /* התאמת ריווח */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#hero" class="logo">שם העסק</a>
+                <ul class="nav-links">
+                    <li><a href="#hero">ראשי</a></li>
+                    <li><a href="#services">שירותים</a></li>
+                    <li><a href="#gallery">גלריה</a></li>
+                    <li><a href="#about">אודות</a></li>
+                    <li><a href="#contact">צור קשר</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="תפריט ניווט" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>צלמו את הרגעים המיוחדים שלכם - מהשמיים!</h1>
+                <p>תיעוד אווירי מקצועי ומרגש להצעות נישואין, ימי הולדת, אירועי חברה ועוד.</p>
+                <a href="#contact" class="cta-button">קבלו הצעת מחיר</a>
+            </div>
+            </section>
+
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2>השירותים שלנו</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-ring service-icon"></i>
+                        <h3>הצעות נישואין</h3>
+                        <p>תיעוד מרגש ודיסקרטי של הרגע המיוחד שלכם, מזווית ייחודית ובלתי נשכחת.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-birthday-cake service-icon"></i>
+                        <h3>ימי הולדת ומסיבות</h3>
+                        <p>צילומי אווירה מרהיבים של החגיגה שלכם, תמונות וסרטונים שיוסיפו WOW לאלבום.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-calendar-alt service-icon"></i>
+                        <h3>Save the Date</h3>
+                        <p>צרו סרטון "Save the Date" מקורי ויצירתי שיגרום לאורחים שלכם לחכות לאירוע.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-building service-icon"></i>
+                        <h3>אירועי חברה ועסקים</h3>
+                        <p>צילום כנסים, ימי גיבוש, השקות ונדל"ן ממעוף הציפור, לשיווק ולתיעוד.</p>
+                    </div>
+                     <div class="service-card">
+                        <i class="fas fa-video service-icon"></i>
+                        <h3>קליפים ופרסומות</h3>
+                        <p>הפקת סרטונים ייחודיים וקליפים מוזיקליים עם זוויות אוויריות עוצרות נשימה.</p>
+                    </div>
+                     <div class="service-card">
+                        <i class="fas fa-plus service-icon"></i>
+                        <h3>אירועים נוספים</h3>
+                        <p>צריכים צילום רחפן לאירוע אחר? דברו איתנו ונמצא פתרון יצירתי עבורכם.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <h2>גלריית עבודות</h2>
+                <p> הצצה קטנה לרגעים שתפסנו מהשמיים.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300/aabbcc/ffffff?text=Proposal+Drone+Shot" alt="צילום רחפן הצעת נישואין">
+                        <div class="gallery-overlay">הצעת נישואין</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300/ddeeff/000000?text=Birthday+Party+Aerial" alt="צילום רחפן מסיבת יום הולדת">
+                         <div class="gallery-overlay">מסיבת יום הולדת</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300/ffccdd/ffffff?text=Save+The+Date+Video+Still" alt="צילום רחפן סייב דה דייט">
+                         <div class="gallery-overlay">Save the Date</div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300/ccddaa/000000?text=Event+Overview" alt="צילום רחפן אירוע חברה">
+                         <div class="gallery-overlay">אירוע חברה</div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300/ffeecc/000000?text=Coastal+Drone+Shot" alt="צילום נוף עם רחפן">
+                        <div class="gallery-overlay">צילום נוף</div>
+                    </div>
+                     <div class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300/e0e0e0/000000?text=Drone+in+Action" alt="רחפן בפעולה">
+                        <div class="gallery-overlay">עוד רגע קסום</div>
+                    </div>
+                    </div>
+                 <a href="#contact" class="cta-button gallery-cta">רוצים גם תיעוד כזה?</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container about-content">
+                 <div class="about-image">
+                     <img src="https://via.placeholder.com/400x400/cccccc/ffffff?text=Your+Photo+or+Team" alt="אודות שם העסק">
+                 </div>
+                <div class="about-text">
+                    <h2>קצת עלינו</h2>
+                    <p>אנחנו [שם העסק], צוות של צלמים מקצועיים ומומחי רחפנים עם תשוקה ללכוד רגעים מיוחדים מזוויות ייחודיות.</p>
+                    <p>עם ניסיון של [מספר] שנים בתחום, אנו משתמשים בציוד המתקדם ביותר ובטכניקות צילום ועריכה חדשניות כדי להבטיח תוצאות מרהיבות שישאירו אתכם ואת האורחים שלכם פעורי פה.</p>
+                    <p>אנו מאמינים שכל אירוע הוא סיפור, והמטרה שלנו היא לספר את הסיפור שלכם בצורה הקולנועית והמרגשת ביותר. אנו מקפידים על שירות אישי, מקצועיות ללא פשרות ועמידה בלוחות זמנים.</p>
+                     <ul class="about-values">
+                        <li><i class="fas fa-check-circle"></i> מקצועיות וניסיון</li>
+                        <li><i class="fas fa-check-circle"></i> ציוד צילום מתקדם</li>
+                        <li><i class="fas fa-check-circle"></i> יצירתיות וחדשנות</li>
+                        <li><i class="fas fa-check-circle"></i> שירות אישי ואדיב</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>דברו איתנו</h2>
+                <p>מוכנים להפוך את האירוע שלכם לבלתי נשכח? מלאו את הטופס ונחזור אליכם בהקדם עם הצעה מותאמת אישית.</p>
+                <div class="contact-container">
+                    <div class="contact-form-wrapper">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">שם מלא:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">דוא"ל:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">טלפון:</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-type">סוג האירוע:</label>
+                                <select id="event-type" name="event-type" required>
+                                    <option value="">בחר/י סוג אירוע...</option>
+                                    <option value="הצעת נישואין">הצעת נישואין</option>
+                                    <option value="יום הולדת">יום הולדת / מסיבה</option>
+                                    <option value="Save the Date">Save the Date</option>
+                                    <option value="אירוע חברה">אירוע חברה</option>
+                                     <option value="קליפ">קליפ / פרסומת</option>
+                                    <option value="אחר">אחר</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-date">תאריך האירוע (משוער):</label>
+                                <input type="date" id="event-date" name="event-date">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">הודעה:</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="cta-button">שלח פנייה</button>
+                        </form>
+                    </div>
+                     <div class="contact-details">
+                         <h3>פרטי התקשרות נוספים</h3>
+                         <p><i class="fas fa-phone"></i> <a href="tel:+972501234567">050-1234567</a></p>
+                         <p><i class="fas fa-envelope"></i> <a href="mailto:info@yourbusiness.co.il">info@yourbusiness.co.il</a></p>
+                         <p><i class="fas fa-map-marker-alt"></i> אזור פעילות: כל הארץ</p>
+                         <div class="social-links">
+                             <a href="#" target="_blank" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
+                             <a href="#" target="_blank" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
+                             <a href="#" target="_blank" aria-label="יוטיוב"><i class="fab fa-youtube"></i></a>
+                             <a href="#" target="_blank" aria-label="וואטסאפ"><i class="fab fa-whatsapp"></i></a>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> כל הזכויות שמורות ל-שם העסק שלך.</p>
+             </div>
+    </footer>
+
+    <script>
+        // --- JavaScript Code ---
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    // Change icon for accessibility and clarity
+                    const icon = menuToggle.querySelector('i');
+                    const isExpanded = navLinks.classList.contains('active');
+                    menuToggle.setAttribute('aria-expanded', isExpanded);
+
+                    if (isExpanded) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close menu when a link is clicked
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                             const icon = menuToggle.querySelector('i');
+                             icon.classList.remove('fa-times');
+                             icon.classList.add('fa-bars');
+                             menuToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+            }
+
+            // --- Contact Form Handling (Basic Example) ---
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent default form submission
+
+                    // Basic Validation Example (add more as needed)
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const eventType = document.getElementById('event-type').value;
+
+                    let isValid = true;
+                    let errorMsg = '';
+
+                     // Clear previous errors (if you add error display elements)
+
+                    if (!name) {
+                        isValid = false;
+                        errorMsg += 'אנא הזן שם מלא.\n';
+                        // Optionally add error class to input: document.getElementById('name').classList.add('error');
+                    }
+                    if (!email || !/^\S+@\S+\.\S+$/.test(email)) { // Simple email regex
+                         isValid = false;
+                         errorMsg += 'אנא הזן כתובת דוא"ל תקינה.\n';
+                    }
+                     if (!phone || !/^[0-9\-+ ]{7,}$/.test(phone)) { // Simple phone regex (allows digits, -, +, space, min 7 chars)
+                         isValid = false;
+                         errorMsg += 'אנא הזן מספר טלפון תקין.\n';
+                     }
+                     if (!eventType) {
+                         isValid = false;
+                         errorMsg += 'אנא בחר סוג אירוע.\n';
+                     }
+                    if (!message) {
+                        isValid = false;
+                         errorMsg += 'אנא הזן את תוכן ההודעה.\n';
+                    }
+
+
+                    if (!isValid) {
+                        alert('אנא תקן את השגיאות הבאות:\n' + errorMsg);
+                        return;
+                    }
+
+                    // In a real application, you would send this data to a server
+                    // using fetch() or XMLHttpRequest
+                    console.log('טופס נשלח:');
+                    const formData = new FormData(contactForm);
+                    for (let [key, value] of formData.entries()) {
+                        console.log(key + ':', value);
+                    }
+
+                    // Simulate sending
+                    alert('תודה על פנייתך! ניצור איתך קשר בהקדם.');
+                    contactForm.reset(); // Clear the form
+                });
+            }
+
+            // --- Update Footer Year ---
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            // --- Add 'active' class to nav link based on scroll position ---
+            const sections = document.querySelectorAll('main section[id]');
+            const navLi = document.querySelectorAll('.nav-links a'); // Select the anchor tags directly
+
+            const activateNavLink = () => {
+                 let current = 'hero'; // Default to hero
+                 const scrollY = window.pageYOffset;
+
+                 sections.forEach(section => {
+                     const sectionTop = section.offsetTop - 90; // Adjusted offset
+                     // Check if scroll position is within the section bounds
+                     if (scrollY >= sectionTop) {
+                          current = section.getAttribute('id');
+                     }
+                 });
+
+                 navLi.forEach(link => {
+                     link.classList.remove('active');
+                     if (link.getAttribute('href') === `#${current}`) {
+                         link.classList.add('active');
+                     }
+                 });
+            }
+
+             // Run on initial load and on scroll
+             activateNavLink();
+             window.addEventListener('scroll', activateNavLink);
+
+
+            // --- Simple Animation on Scroll (using Intersection Observer) ---
+            const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .about-image, .about-text > *, .contact-form-wrapper, .contact-details'); // Select elements to animate
+
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px 0px -50px 0px', // Trigger a bit before it's fully in view
+                threshold: 0.1 // trigger when 10% of the element is visible
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add a class to trigger the CSS animation/transition
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            animatedElements.forEach(el => {
+                 // Make sure the initial state (opacity: 0, transform: translateY(30px))
+                 // is set in the CSS for the base class (e.g., .service-card)
+                 // The .visible class in CSS will override these properties.
+                 // We need to slightly adjust the CSS for this approach
+                 // Added opacity and transform to .service-card base style in CSS above
+                 // Added .visible class in CSS above for .service-card
+
+                 // You might need similar CSS adjustments for other animated elements if they don't have it.
+                 // Example for gallery-item (add similar CSS):
+                 // .gallery-item { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+                 // .gallery-item.visible { opacity: 1; transform: translateY(0); }
+
+                observer.observe(el);
+            });
+
+
+        }); // End DOMContentLoaded
+    </script>
+
+</body>
+</html>
