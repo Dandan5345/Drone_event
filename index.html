@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="צילום רחפן מקצועי לאירועים מיוחדים - הצעות נישואין, ימי הולדת, סייב דה דייט ועוד. תיעוד אווירי מרהיב ובלתי נשכח.">
-    <title>שם העסק שלך - צילום רחפן לאירועים</title>
+    <meta name="description" content="Drone Event View - צילום רחפן מקצועי לאירועים מיוחדים: הצעות נישואין, חתונות, ימי הולדת, סייב דה דייט ועוד. תיעוד אווירי מרהיב ובלתי נשכח עם רועי חנוני.">
+    <title>Drone Event View - צילום רחפן לאירועים</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* --- CSS Styles --- */
-        /* --- כללי --- */
+        /* --- CSS Styles (זהה לקוד הקודם) --- */
         :root {
             --primary-color: #0a4a7d; /* כחול עמוק */
             --secondary-color: #f7a072; /* כתום-אפרסק */
@@ -63,7 +62,6 @@
             padding-bottom: 10px;
         }
 
-        /* קו מתחת לכותרת */
         h2::after {
             content: '';
             position: absolute;
@@ -91,7 +89,7 @@
             color: var(--secondary-color);
         }
 
-        img {
+        img, video { /* Apply to video as well */
             max-width: 100%;
             height: auto;
             display: block;
@@ -105,11 +103,10 @@
             background-color: var(--light-bg);
         }
 
-        /* --- כפתור CTA --- */
         .cta-button {
             display: inline-block;
             background-color: var(--secondary-color);
-            color: var(--light-text);
+            color: var(--light-text) !important; /* Ensure text is light */
             padding: 12px 30px;
             border: none;
             border-radius: var(--border-radius);
@@ -122,14 +119,12 @@
         }
 
         .cta-button:hover {
-            background-color: #e58a5a; /* גוון כהה יותר של הכתום */
-            color: var(--light-text);
+            background-color: #e58a5a;
+            color: var(--light-text) !important;
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
-
-        /* --- Header & Navbar --- */
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             color: var(--primary-color);
@@ -150,7 +145,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem; /* Adjusted size slightly */
             font-weight: 700;
             color: var(--primary-color);
         }
@@ -161,7 +156,7 @@
         }
 
         .nav-links li {
-            margin-left: 25px; /* הפוך ל-margin-right בגלל RTL */
+            margin-left: 25px;
         }
 
         .nav-links a {
@@ -183,7 +178,7 @@
         }
 
         .nav-links a:hover::after,
-        .nav-links a.active::after { /* הוספת קלאס active עם JS */
+        .nav-links a.active::after {
             width: 100%;
         }
 
@@ -198,8 +193,9 @@
 
         /* --- Hero Section --- */
         .hero-section {
-            background: url('https://via.placeholder.com/1920x1080/0a4a7d/ffffff?text=Amazing+Drone+Background') no-repeat center center/cover;
-            height: 100vh; /* גובה מסך מלא */
+            /* Updated Background Image */
+            background: url('https://i.imgur.com/9Sw5PMT_d.webp?maxwidth=760&fidelity=grand') no-repeat center center/cover;
+            height: 100vh;
             min-height: 600px;
             position: relative;
             display: flex;
@@ -207,7 +203,7 @@
             justify-content: center;
             text-align: center;
             color: var(--light-text);
-            padding-top: 80px; /* כדי לא להסתיר מתחת ל-navbar */
+            padding-top: 80px;
         }
 
         .hero-overlay {
@@ -216,7 +212,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* שכבה כהה */
+            background-color: rgba(0, 0, 0, 0.45); /* Slightly adjusted overlay darkness */
             z-index: 1;
         }
 
@@ -231,12 +227,14 @@
             margin-bottom: 1.5rem;
             color: var(--light-text);
             line-height: 1.2;
+             text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Added text shadow for better readability */
         }
 
         .hero-content p {
             font-size: 1.4rem;
             margin-bottom: 2.5rem;
-            color: #eee; /* צבע טקסט בהיר יותר */
+            color: #eee;
+             text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Added text shadow */
         }
 
         /* --- Services Section --- */
@@ -253,19 +251,18 @@
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: center;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed), opacity 0.6s ease-out; /* Added opacity */
-            opacity: 0; /* Start hidden for animation */
-            transform: translateY(30px); /* Start lower for animation */
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed), opacity 0.6s ease-out;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        .service-card.visible { /* Class added by JS */
+         .service-card.visible { /* Class added by JS for animation */
              opacity: 1;
              transform: translateY(0);
         }
 
-
         .service-card:hover {
-            transform: translateY(-10px); /* Adjusted hover effect */
+            transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
@@ -283,7 +280,7 @@
 
         /* --- Gallery Section --- */
         .gallery-section {
-            background-color: #fff; /* רקע לבן נקי לגלריה */
+            background-color: #fff;
         }
 
         .gallery-section p {
@@ -296,7 +293,7 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            gap: 20px; /* Increased gap slightly */
         }
 
         .gallery-item {
@@ -304,40 +301,24 @@
             overflow: hidden;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-speed), filter var(--transition-speed);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 74, 125, 0.7); /* צבע ראשי עם שקיפות */
-            color: var(--light-text);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.4rem;
-            font-weight: 600;
+            cursor: pointer; /* Keep cursor pointer */
+            /* Added for animation */
             opacity: 0;
-            transition: opacity var(--transition-speed);
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            background-color: #eee; /* Add a light background while video loads */
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-            filter: blur(2px);
-        }
+         .gallery-item.visible { /* Class added by JS for animation */
+             opacity: 1;
+             transform: translateY(0);
+         }
 
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
+        .gallery-item video { /* Style video elements */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the container */
+            display: block;
         }
 
         .gallery-cta {
@@ -361,7 +342,15 @@
         .about-image {
             flex: 1;
             max-width: 450px;
+            /* Added for animation */
+             opacity: 0;
+             transform: translateY(20px);
+             transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; /* Slight delay */
         }
+         .about-image.visible {
+             opacity: 1;
+             transform: translateY(0);
+         }
 
         .about-image img {
             border-radius: var(--border-radius);
@@ -379,13 +368,27 @@
             font-size: 1.1rem;
             display: flex;
             align-items: center;
+             /* Added for animation */
+             opacity: 0;
+             transform: translateX(20px); /* Animate from right */
+             transition: opacity 0.5s ease, transform 0.5s ease;
         }
+         /* Stagger animation for list items */
+         .about-values li:nth-child(1).visible { transition-delay: 0.3s; }
+         .about-values li:nth-child(2).visible { transition-delay: 0.4s; }
+         .about-values li:nth-child(3).visible { transition-delay: 0.5s; }
+         .about-values li:nth-child(4).visible { transition-delay: 0.6s; }
+
+         .about-values li.visible {
+             opacity: 1;
+             transform: translateX(0);
+         }
 
         .about-values i {
             color: var(--secondary-color);
-            margin-left: 10px; /* הפוך ל-margin-right */
+            margin-left: 10px;
             font-size: 1.2rem;
-            width: 20px; /* ליישור */
+            width: 20px;
             text-align: center;
         }
 
@@ -395,7 +398,7 @@
              background-color: var(--light-bg);
         }
 
-        .contact-section p:first-of-type { /* פסקה ראשונה מתחת לכותרת */
+        .contact-section p:first-of-type {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 3rem auto;
@@ -413,13 +416,30 @@
 
         .contact-form-wrapper {
             flex: 2;
+            /* Added for animation */
+             opacity: 0;
+             transform: translateY(20px);
+             transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
         }
+         .contact-form-wrapper.visible {
+             opacity: 1;
+             transform: translateY(0);
+         }
+
 
         .contact-details {
             flex: 1;
-            padding-right: 30px; /* הפוך ל-padding-left */
-            border-right: 1px solid #eee; /* הפוך ל-border-left */
+            padding-right: 30px;
+            border-right: 1px solid #eee;
+            /* Added for animation */
+             opacity: 0;
+             transform: translateY(20px);
+             transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s; /* Delay */
         }
+         .contact-details.visible {
+             opacity: 1;
+             transform: translateY(0);
+         }
 
         .contact-details h3 {
             margin-bottom: 1.5rem;
@@ -433,15 +453,17 @@
             align-items: center;
         }
 
-        .contact-details i {
-            margin-left: 12px; /* הפוך ל-margin-right */
+        .contact-details i.fas, /* Target FontAwesome icons specifically */
+        .contact-details i.fab {
+            margin-left: 12px;
             color: var(--secondary-color);
-            width: 20px; /* ליישור אייקונים */
+            width: 20px;
             text-align: center;
         }
 
         .contact-details a {
             color: var(--dark-text);
+            word-break: break-all; /* Prevent long links from overflowing */
         }
         .contact-details a:hover {
             color: var(--primary-color);
@@ -482,7 +504,7 @@
         }
 
         #contact-form textarea {
-            resize: vertical; /* אפשרות לשנות גובה */
+            resize: vertical;
         }
 
         #contact-form button[type="submit"] {
@@ -497,7 +519,7 @@
         .social-links a {
             color: var(--primary-color);
             font-size: 1.8rem;
-            margin-left: 15px; /* הפוך ל-margin-right */
+            margin-left: 15px;
             transition: color var(--transition-speed), transform var(--transition-speed);
             display: inline-block;
         }
@@ -513,7 +535,7 @@
             color: var(--light-text);
             text-align: center;
             padding: 25px 0;
-            margin-top: 0; /* אין צורך במרווח אם הוא מגיע אחרי section עם רקע */
+            margin-top: 0;
         }
 
         footer p {
@@ -525,114 +547,50 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            .container {
-                max-width: 960px;
-            }
-            h2 {
-                font-size: 2.2rem;
-            }
-            .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .about-image {
-                margin-bottom: 30px;
-                max-width: 350px; /* הקטנת תמונה */
-            }
-             .about-values {
-                text-align: right; /* יישור לימין במובייל */
-                 padding-right: 20px; /* הוספת ריווח לימין */
-            }
-             .contact-container {
-                flex-direction: column-reverse; /* טופס למעלה, פרטים למטה */
-                padding: 30px;
-            }
-            .contact-details {
-                padding-right: 0; /* בטל padding */
-                border-right: none; /* בטל קו הפרדה */
-                margin-bottom: 30px;
-                text-align: center;
-            }
-             .contact-details p {
-                justify-content: center;
-            }
+            .container { max-width: 960px; }
+            h2 { font-size: 2.2rem; }
+            .about-content { flex-direction: column; text-align: center; }
+            .about-image { margin-bottom: 30px; max-width: 350px; }
+            .about-values { text-align: right; padding-right: 20px; }
+            .contact-container { flex-direction: column-reverse; padding: 30px; }
+            .contact-details { padding-right: 0; border-right: none; margin-bottom: 30px; text-align: center; }
+            .contact-details p { justify-content: center; }
+            .logo { font-size: 1.5rem; }
+             .hero-content h1 { font-size: 3rem; }
+             .hero-content p { font-size: 1.3rem; }
         }
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* הסתר תפריט רגיל */
-                flex-direction: column;
-                position: absolute;
-                top: 80px; /* מתחת ל-navbar */
-                right: 0;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.98);
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                text-align: center;
-                z-index: 999; /* Ensure it's above other content */
+                display: none; flex-direction: column; position: absolute;
+                top: 70px; /* Adjusted for smaller navbar height */
+                 right: 0; width: 100%; background-color: rgba(255, 255, 255, 0.98);
+                padding: 20px 0; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                text-align: center; z-index: 999;
             }
-            .nav-links.active {
-                display: flex; /* הצג תפריט במצב פעיל */
-            }
-            .nav-links li {
-                margin: 15px 0;
-                margin-left: 0; /* בטל margin צדדי */
-            }
-            .mobile-menu-toggle {
-                display: block; /* הצג כפתור המבורגר */
-            }
-             .hero-content h1 {
-                font-size: 2.8rem;
-            }
-             .hero-content p {
-                font-size: 1.2rem;
-            }
-            .services-grid {
-                grid-template-columns: 1fr; /* עמודה אחת במובייל */
-            }
-            .gallery-grid {
-                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 15px 0; margin-left: 0; }
+            .mobile-menu-toggle { display: block; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .navbar .container { height: 70px; } /* Adjust navbar height for smaller screens */
+             html { scroll-padding-top: 70px; } /* Match navbar height */
         }
 
         @media (max-width: 576px) {
-             html {
-                scroll-padding-top: 70px; /* התאם ל-navbar קטן יותר אם צריך */
-            }
-            .navbar .container {
-                 height: 70px;
-            }
-            .logo {
-                font-size: 1.5rem;
-            }
-             h2 {
-                font-size: 2rem;
-            }
-             .hero-content h1 {
-                font-size: 2.2rem;
-            }
-             .hero-content p {
-                font-size: 1.1rem;
-            }
-            .cta-button {
-                padding: 10px 25px;
-                font-size: 1rem;
-            }
-            section {
-                padding: 60px 0;
-            }
-            .contact-container {
-                padding: 20px;
-            }
-            #contact-form input,
-            #contact-form select,
-            #contact-form textarea {
-                padding: 10px;
-            }
-            .about-values {
-                 padding-right: 10px; /* התאמת ריווח */
-            }
+            .logo { font-size: 1.4rem; }
+            h2 { font-size: 2rem; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .cta-button { padding: 10px 25px; font-size: 1rem; }
+            section { padding: 60px 0; }
+            .contact-container { padding: 20px; }
+            #contact-form input, #contact-form select, #contact-form textarea { padding: 10px; }
+            .about-values { padding-right: 10px; }
+            .gallery-grid { grid-template-columns: 1fr; } /* Single column gallery on very small screens */
+            .contact-details { border-bottom: 1px solid #eee; padding-bottom: 20px; } /* Add separator in mobile column view */
         }
     </style>
 </head>
@@ -641,7 +599,7 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="#hero" class="logo">שם העסק</a>
+                <a href="#hero" class="logo">Drone Event View</a>
                 <ul class="nav-links">
                     <li><a href="#hero">ראשי</a></li>
                     <li><a href="#services">שירותים</a></li>
@@ -660,11 +618,11 @@
         <section id="hero" class="hero-section">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1>צלמו את הרגעים המיוחדים שלכם - מהשמיים!</h1>
-                <p>תיעוד אווירי מקצועי ומרגש להצעות נישואין, ימי הולדת, אירועי חברה ועוד.</p>
-                <a href="#contact" class="cta-button">קבלו הצעת מחיר</a>
+                <h1>Drone Event View - רגעים מהשמיים</h1>
+                <p>רועי חנוני מתעד את הרגעים המיוחדים שלכם מזווית עוצרת נשימה - הצעות נישואין, חתונות, ימי הולדת ועוד.</p>
+                <a href="#contact" class="cta-button">צרו קשר</a>
             </div>
-            </section>
+        </section>
 
         <section id="services" class="services-section">
             <div class="container">
@@ -673,32 +631,30 @@
                     <div class="service-card">
                         <i class="fas fa-ring service-icon"></i>
                         <h3>הצעות נישואין</h3>
-                        <p>תיעוד מרגש ודיסקרטי של הרגע המיוחד שלכם, מזווית ייחודית ובלתי נשכחת.</p>
+                        <p>תיעוד קולנועי ומרגש של הרגע הגדול, מזווית ייחודית ובלתי נשכחת שתמיד חלמתם עליה.</p>
                     </div>
                     <div class="service-card">
+                        <i class="fas fa-church service-icon"></i> <h3>חתונות וחופות</h3>
+                        <p>צילום אווירי מרהיב של החופה והאירוע, לוכד את האווירה והיופי ממעוף הציפור.</p>
+                    </div>
+                     <div class="service-card">
                         <i class="fas fa-birthday-cake service-icon"></i>
                         <h3>ימי הולדת ומסיבות</h3>
-                        <p>צילומי אווירה מרהיבים של החגיגה שלכם, תמונות וסרטונים שיוסיפו WOW לאלבום.</p>
+                        <p>תמונות וסרטונים דינמיים מהחגיגה שלכם שיוסיפו מימד ייחודי ומרשים לאלבום.</p>
                     </div>
                     <div class="service-card">
                         <i class="fas fa-calendar-alt service-icon"></i>
                         <h3>Save the Date</h3>
-                        <p>צרו סרטון "Save the Date" מקורי ויצירתי שיגרום לאורחים שלכם לחכות לאירוע.</p>
+                        <p>הפקת סרטון "Save the Date" יצירתי ומקורי מהאוויר, שיגרום לאורחים שלכם לחכות לאירוע.</p>
                     </div>
                     <div class="service-card">
-                        <i class="fas fa-building service-icon"></i>
-                        <h3>אירועי חברה ועסקים</h3>
-                        <p>צילום כנסים, ימי גיבוש, השקות ונדל"ן ממעוף הציפור, לשיווק ולתיעוד.</p>
+                        <i class="fas fa-baby service-icon"></i> <h3>צילומי הריון וגילוי מין</h3>
+                        <p>תיעוד אמנותי ומרגש של תקופת ההריון או רגע גילוי מין הילוד מזווית מיוחדת.</p>
                     </div>
-                     <div class="service-card">
-                        <i class="fas fa-video service-icon"></i>
-                        <h3>קליפים ופרסומות</h3>
-                        <p>הפקת סרטונים ייחודיים וקליפים מוזיקליים עם זוויות אוויריות עוצרות נשימה.</p>
-                    </div>
-                     <div class="service-card">
-                        <i class="fas fa-plus service-icon"></i>
+                    <div class="service-card">
+                        <i class="fas fa-camera-retro service-icon"></i>
                         <h3>אירועים נוספים</h3>
-                        <p>צריכים צילום רחפן לאירוע אחר? דברו איתנו ונמצא פתרון יצירתי עבורכם.</p>
+                        <p>צילום אווירי לאירועי חברה, קליפים, נדל"ן ועוד. דברו איתנו להתאמה אישית.</p>
                     </div>
                 </div>
             </div>
@@ -707,52 +663,52 @@
         <section id="gallery" class="gallery-section">
             <div class="container">
                 <h2>גלריית עבודות</h2>
-                <p> הצצה קטנה לרגעים שתפסנו מהשמיים.</p>
+                <p>הצצה לרגעים קסומים של הצעות נישואין שתפסנו מהשמיים.</p>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300/aabbcc/ffffff?text=Proposal+Drone+Shot" alt="צילום רחפן הצעת נישואין">
-                        <div class="gallery-overlay">הצעת נישואין</div>
+                         <video autoplay muted loop playsinline preload="metadata">
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746418182/dji_fly_20250502_092814_787_1746174081785_video_ragzjb_z84mw0.mp4" type="video/mp4">
+                            Your browser does not support the video tag. צילום רחפן הצעת נישואין 1
+                         </video>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300/ddeeff/000000?text=Birthday+Party+Aerial" alt="צילום רחפן מסיבת יום הולדת">
-                         <div class="gallery-overlay">מסיבת יום הולדת</div>
+                         <video autoplay muted loop playsinline preload="metadata">
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746419355/dji_fly_20250501_122718_709_1746115737082_video_sdhvnv_m8qsgb.mp4" type="video/mp4">
+                            Your browser does not support the video tag. צילום רחפן הצעת נישואין 2
+                         </video>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300/ffccdd/ffffff?text=Save+The+Date+Video+Still" alt="צילום רחפן סייב דה דייט">
-                         <div class="gallery-overlay">Save the Date</div>
+                         <video autoplay muted loop playsinline preload="metadata">
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746419393/lv_0_20250428000358_mo9thj_kbdd4k.mp4" type="video/mp4">
+                            Your browser does not support the video tag. צילום רחפן הצעת נישואין 3
+                         </video>
                     </div>
                      <div class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300/ccddaa/000000?text=Event+Overview" alt="צילום רחפן אירוע חברה">
-                         <div class="gallery-overlay">אירוע חברה</div>
+                          <video autoplay muted loop playsinline preload="metadata">
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746419378/dji_fly_20250501_122136_698_1746115900587_video_kdsxfc_xarmhx.mp4" type="video/mp4">
+                            Your browser does not support the video tag. צילום רחפן הצעת נישואין 4
+                          </video>
                     </div>
-                     <div class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300/ffeecc/000000?text=Coastal+Drone+Shot" alt="צילום נוף עם רחפן">
-                        <div class="gallery-overlay">צילום נוף</div>
-                    </div>
-                     <div class="gallery-item">
-                        <img src="https://via.placeholder.com/400x300/e0e0e0/000000?text=Drone+in+Action" alt="רחפן בפעולה">
-                        <div class="gallery-overlay">עוד רגע קסום</div>
-                    </div>
-                    </div>
-                 <a href="#contact" class="cta-button gallery-cta">רוצים גם תיעוד כזה?</a>
+                </div>
+                 <a href="#contact" class="cta-button gallery-cta">רוצים לתעד את הרגע שלכם?</a>
             </div>
         </section>
 
         <section id="about" class="about-section">
             <div class="container about-content">
                  <div class="about-image">
-                     <img src="https://via.placeholder.com/400x400/cccccc/ffffff?text=Your+Photo+or+Team" alt="אודות שם העסק">
+                     <img src="https://via.placeholder.com/400x400/cccccc/ffffff?text=Roie+Hanuni+%26+DJI+Drone" alt="רועי חנוני - Drone Event View">
                  </div>
                 <div class="about-text">
-                    <h2>קצת עלינו</h2>
-                    <p>אנחנו [שם העסק], צוות של צלמים מקצועיים ומומחי רחפנים עם תשוקה ללכוד רגעים מיוחדים מזוויות ייחודיות.</p>
-                    <p>עם ניסיון של [מספר] שנים בתחום, אנו משתמשים בציוד המתקדם ביותר ובטכניקות צילום ועריכה חדשניות כדי להבטיח תוצאות מרהיבות שישאירו אתכם ואת האורחים שלכם פעורי פה.</p>
-                    <p>אנו מאמינים שכל אירוע הוא סיפור, והמטרה שלנו היא לספר את הסיפור שלכם בצורה הקולנועית והמרגשת ביותר. אנו מקפידים על שירות אישי, מקצועיות ללא פשרות ועמידה בלוחות זמנים.</p>
+                    <h2>נעים להכיר, רועי חנוני</h2>
+                    <p>שלום! אני רועי חנוני, הבעלים והצלם מאחורי <strong>Drone Event View</strong>. עם תשוקה לצילום וטכנולוגיה, אני מתמחה בלכידת הרגעים המרגשים והחשובים ביותר בחיים שלכם מזווית אווירית ייחודית באמצעות רחפן DJI מקצועי.</p>
+                    <p>ההתמחות העיקרית שלי היא <strong>הצעות נישואין</strong> – לתפוס את ההפתעה, ההתרגשות והאהבה ברגע החד-פעמי הזה. בנוסף, אני מציע שירותי צילום אווירי ל<strong>חתונות (חופות), ימי הולדת, צילומי הריון, גילוי מין הילד, סרטוני Save the Date</strong> ועוד.</p>
+                    <p>אני מאמין שכל אירוע הוא סיפור בפני עצמו, והמטרה שלי היא לספק לכם מזכרת קולנועית ובלתי נשכחת, תוך הקפדה על מקצועיות, יצירתיות, שירות אישי ושימוש בציוד המתקדם ביותר.</p>
                      <ul class="about-values">
-                        <li><i class="fas fa-check-circle"></i> מקצועיות וניסיון</li>
-                        <li><i class="fas fa-check-circle"></i> ציוד צילום מתקדם</li>
-                        <li><i class="fas fa-check-circle"></i> יצירתיות וחדשנות</li>
-                        <li><i class="fas fa-check-circle"></i> שירות אישי ואדיב</li>
+                        <li><i class="fas fa-check-circle"></i> מומחיות בהצעות נישואין</li>
+                        <li><i class="fas fa-check-circle"></i> שימוש ברחפן DJI מקצועי</li>
+                        <li><i class="fas fa-check-circle"></i> יצירתיות וזוויות צילום ייחודיות</li>
+                        <li><i class="fas fa-check-circle"></i> שירות אישי ואמינות</li>
                     </ul>
                 </div>
             </div>
@@ -760,12 +716,12 @@
 
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2>דברו איתנו</h2>
-                <p>מוכנים להפוך את האירוע שלכם לבלתי נשכח? מלאו את הטופס ונחזור אליכם בהקדם עם הצעה מותאמת אישית.</p>
+                <h2>דברו איתי</h2>
+                <p>מוכנים להפוך את האירוע שלכם לבלתי נשכח? השאירו פרטים או צרו קשר ישירות ונחזור אליכם בהקדם.</p>
                 <div class="contact-container">
                     <div class="contact-form-wrapper">
                         <form id="contact-form">
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label for="name">שם מלא:</label>
                                 <input type="text" id="name" name="name" required>
                             </div>
@@ -782,10 +738,10 @@
                                 <select id="event-type" name="event-type" required>
                                     <option value="">בחר/י סוג אירוע...</option>
                                     <option value="הצעת נישואין">הצעת נישואין</option>
+                                    <option value="חתונה">חתונה / חופה</option>
                                     <option value="יום הולדת">יום הולדת / מסיבה</option>
                                     <option value="Save the Date">Save the Date</option>
-                                    <option value="אירוע חברה">אירוע חברה</option>
-                                     <option value="קליפ">קליפ / פרסומת</option>
+                                    <option value="הריון/גילוי מין">צילומי הריון / גילוי מין</option>
                                     <option value="אחר">אחר</option>
                                 </select>
                             </div>
@@ -795,22 +751,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">הודעה:</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <textarea id="message" name="message" rows="4" required placeholder="ספרו לי קצת על האירוע שלכם..."></textarea>
                             </div>
                             <button type="submit" class="cta-button">שלח פנייה</button>
                         </form>
                     </div>
                      <div class="contact-details">
-                         <h3>פרטי התקשרות נוספים</h3>
-                         <p><i class="fas fa-phone"></i> <a href="tel:+972501234567">050-1234567</a></p>
-                         <p><i class="fas fa-envelope"></i> <a href="mailto:info@yourbusiness.co.il">info@yourbusiness.co.il</a></p>
+                         <h3>דרכים נוספות ליצירת קשר</h3>
+                         <p><i class="fas fa-phone"></i> <a href="tel:+972544990190">054-4990190</a></p>
                          <p><i class="fas fa-map-marker-alt"></i> אזור פעילות: כל הארץ</p>
                          <div class="social-links">
-                             <a href="#" target="_blank" aria-label="פייסבוק"><i class="fab fa-facebook-f"></i></a>
-                             <a href="#" target="_blank" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
-                             <a href="#" target="_blank" aria-label="יוטיוב"><i class="fab fa-youtube"></i></a>
-                             <a href="#" target="_blank" aria-label="וואטסאפ"><i class="fab fa-whatsapp"></i></a>
+                             <a href="https://www.instagram.com/drone_event_view?igsh=emZkaXJ4cW93N3Jv" target="_blank" aria-label="אינסטגרם"><i class="fab fa-instagram"></i></a>
+                             <a href="https://api.whatsapp.com/send/?phone=972544990190&text=%D7%94%D7%99%D7%99%2C+%D7%90%D7%A0%D7%99+%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F+%D7%9C%D7%A9%D7%9E%D7%95%D7%A2+%D7%A4%D7%A8%D7%98%D7%99%D7%9D+%D7%A2%D7%9C+%D7%94%D7%A6%D7%99%D7%9C%D7%95%D7%9E%D7%99+%D7%A8%D7%97%D7%A4%D7%9F&type=phone_number&app_absent=0&fbclid=PAQ0xDSwKEiKBleHRuA2FlbQIxMAABp8S_71MvnKk8bKXOcI4MKplXl9h8nOa5HAZ_6OvaHeIVpjXBd7Z4GU3tATBO_aem_eALT3J68nAp3O-_MGCVOjA" target="_blank" aria-label="וואטסאפ"><i class="fab fa-whatsapp"></i></a>
                          </div>
+                           <a href="tel:+972544990190" class="cta-button" style="margin-top: 20px; display: block; text-align: center;">התקשר עכשיו</a>
                     </div>
                 </div>
             </div>
@@ -819,8 +773,8 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="current-year"></span> כל הזכויות שמורות ל-שם העסק שלך.</p>
-             </div>
+            <p>&copy; <span id="current-year"></span> כל הזכויות שמורות ל-Drone Event View | רועי חנוני.</p>
+        </div>
     </footer>
 
     <script>
@@ -834,166 +788,116 @@
             if (menuToggle && navLinks) {
                 menuToggle.addEventListener('click', () => {
                     navLinks.classList.toggle('active');
-                    // Change icon for accessibility and clarity
                     const icon = menuToggle.querySelector('i');
                     const isExpanded = navLinks.classList.contains('active');
                     menuToggle.setAttribute('aria-expanded', isExpanded);
-
-                    if (isExpanded) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
+                    icon.className = isExpanded ? 'fas fa-times' : 'fas fa-bars'; // Toggle icon class
                 });
 
-                // Close menu when a link is clicked
                 navLinks.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', () => {
                         if (navLinks.classList.contains('active')) {
                             navLinks.classList.remove('active');
-                             const icon = menuToggle.querySelector('i');
-                             icon.classList.remove('fa-times');
-                             icon.classList.add('fa-bars');
-                             menuToggle.setAttribute('aria-expanded', 'false');
+                            menuToggle.querySelector('i').className = 'fas fa-bars';
+                            menuToggle.setAttribute('aria-expanded', 'false');
                         }
                     });
                 });
             }
 
-            // --- Contact Form Handling (Basic Example) ---
+            // --- Contact Form Handling ---
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Prevent default form submission
-
-                    // Basic Validation Example (add more as needed)
+                    e.preventDefault();
+                    // (Form validation and handling code remains the same)
                     const name = document.getElementById('name').value.trim();
                     const email = document.getElementById('email').value.trim();
                     const message = document.getElementById('message').value.trim();
                     const phone = document.getElementById('phone').value.trim();
                     const eventType = document.getElementById('event-type').value;
-
                     let isValid = true;
                     let errorMsg = '';
 
-                     // Clear previous errors (if you add error display elements)
-
-                    if (!name) {
-                        isValid = false;
-                        errorMsg += 'אנא הזן שם מלא.\n';
-                        // Optionally add error class to input: document.getElementById('name').classList.add('error');
-                    }
-                    if (!email || !/^\S+@\S+\.\S+$/.test(email)) { // Simple email regex
-                         isValid = false;
-                         errorMsg += 'אנא הזן כתובת דוא"ל תקינה.\n';
-                    }
-                     if (!phone || !/^[0-9\-+ ]{7,}$/.test(phone)) { // Simple phone regex (allows digits, -, +, space, min 7 chars)
-                         isValid = false;
-                         errorMsg += 'אנא הזן מספר טלפון תקין.\n';
-                     }
-                     if (!eventType) {
-                         isValid = false;
-                         errorMsg += 'אנא בחר סוג אירוע.\n';
-                     }
-                    if (!message) {
-                        isValid = false;
-                         errorMsg += 'אנא הזן את תוכן ההודעה.\n';
-                    }
-
+                    if (!name) { isValid = false; errorMsg += 'אנא הזן שם מלא.\n'; }
+                    if (!email || !/^\S+@\S+\.\S+$/.test(email)) { isValid = false; errorMsg += 'אנא הזן כתובת דוא"ל תקינה.\n'; }
+                    if (!phone || !/^[0-9\-+ ]{7,}$/.test(phone)) { isValid = false; errorMsg += 'אנא הזן מספר טלפון תקין.\n'; }
+                    if (!eventType) { isValid = false; errorMsg += 'אנא בחר סוג אירוע.\n'; }
+                    if (!message) { isValid = false; errorMsg += 'אנא הזן את תוכן ההודעה.\n'; }
 
                     if (!isValid) {
                         alert('אנא תקן את השגיאות הבאות:\n' + errorMsg);
                         return;
                     }
 
-                    // In a real application, you would send this data to a server
-                    // using fetch() or XMLHttpRequest
                     console.log('טופס נשלח:');
                     const formData = new FormData(contactForm);
-                    for (let [key, value] of formData.entries()) {
-                        console.log(key + ':', value);
-                    }
-
-                    // Simulate sending
+                    for (let [key, value] of formData.entries()) { console.log(key + ':', value); }
                     alert('תודה על פנייתך! ניצור איתך קשר בהקדם.');
-                    contactForm.reset(); // Clear the form
+                    contactForm.reset();
                 });
             }
 
             // --- Update Footer Year ---
             const currentYearSpan = document.getElementById('current-year');
             if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
+                 currentYearSpan.textContent = new Date().getFullYear();
             }
 
-            // --- Add 'active' class to nav link based on scroll position ---
+            // --- Activate Nav Link on Scroll ---
             const sections = document.querySelectorAll('main section[id]');
-            const navLi = document.querySelectorAll('.nav-links a'); // Select the anchor tags directly
+            const navLi = document.querySelectorAll('.nav-links a');
+            const navHeight = document.querySelector('.navbar').offsetHeight;
 
             const activateNavLink = () => {
-                 let current = 'hero'; // Default to hero
-                 const scrollY = window.pageYOffset;
+                let current = 'hero';
+                const scrollY = window.pageYOffset;
 
-                 sections.forEach(section => {
-                     const sectionTop = section.offsetTop - 90; // Adjusted offset
-                     // Check if scroll position is within the section bounds
-                     if (scrollY >= sectionTop) {
-                          current = section.getAttribute('id');
-                     }
-                 });
-
-                 navLi.forEach(link => {
-                     link.classList.remove('active');
-                     if (link.getAttribute('href') === `#${current}`) {
-                         link.classList.add('active');
-                     }
-                 });
-            }
-
-             // Run on initial load and on scroll
-             activateNavLink();
-             window.addEventListener('scroll', activateNavLink);
-
-
-            // --- Simple Animation on Scroll (using Intersection Observer) ---
-            const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .about-image, .about-text > *, .contact-form-wrapper, .contact-details'); // Select elements to animate
-
-            const observerOptions = {
-                root: null, // relative to the viewport
-                rootMargin: '0px 0px -50px 0px', // Trigger a bit before it's fully in view
-                threshold: 0.1 // trigger when 10% of the element is visible
-            };
-
-            const observerCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Add a class to trigger the CSS animation/transition
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Stop observing once animated
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - navHeight - 20;
+                    if (scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
                     }
                 });
-            };
 
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
+                navLi.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            activateNavLink();
+            window.addEventListener('scroll', activateNavLink);
 
-            animatedElements.forEach(el => {
-                 // Make sure the initial state (opacity: 0, transform: translateY(30px))
-                 // is set in the CSS for the base class (e.g., .service-card)
-                 // The .visible class in CSS will override these properties.
-                 // We need to slightly adjust the CSS for this approach
-                 // Added opacity and transform to .service-card base style in CSS above
-                 // Added .visible class in CSS above for .service-card
+            // --- Animation on Scroll (Intersection Observer) ---
+            // This observer handles adding the 'visible' class for animations
+            const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .about-image, .about-values li, .contact-form-wrapper, .contact-details');
 
-                 // You might need similar CSS adjustments for other animated elements if they don't have it.
-                 // Example for gallery-item (add similar CSS):
-                 // .gallery-item { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-                 // .gallery-item.visible { opacity: 1; transform: translateY(0); }
+            if ("IntersectionObserver" in window) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px 0px -50px 0px',
+                    threshold: 0.1
+                };
 
-                observer.observe(el);
-            });
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                };
 
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                animatedElements.forEach(el => observer.observe(el));
+            } else {
+                 animatedElements.forEach(el => el.classList.add('visible'));
+            }
+
+             // --- Removed the second Intersection Observer that attempted to play videos ---
+             // Relying solely on the autoplay attribute in the HTML tag now.
 
         }); // End DOMContentLoaded
     </script>
