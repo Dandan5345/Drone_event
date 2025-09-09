@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="גלריית עבודות של Drone Event View - צילום רחפן מקצועי לאירועים מיוחדים: הצעות נישואין, חתונות, ימי הולדת ועוד.">
+    <title>גלריה - Drone Event View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* --- General Styles (Similar to index.html) --- */
+        :root {
+            --primary-color: #0a4a7d; /* כחול עמוק */
+            --secondary-color: #f7a072; /* כתום-אפרסק */
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text);
+            background-color: #fff;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--light-text) !important;
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background-color: #e58a5a;
+            transform: translateY(-2px);
+        }
+
+        /* --- Navbar (Identical to index.html) --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: var(--primary-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+             margin-right: 25px;
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a.active-page {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        /* --- Page Header --- */
+        .page-header {
+            background-color: var(--light-bg);
+            padding: 120px 0 40px 0;
+            text-align: center;
+        }
+
+        /* --- Full Gallery Section --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            background-color: #eee;
+        }
+        
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Footer (Identical to index.html) --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 25px 0;
+        }
+
+        footer p {
+            margin: 0;
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 70px; right: 0; width: 100%; background-color: rgba(255, 255, 255, 0.98);
+                padding: 20px 0; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                text-align: center; z-index: 999;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 15px 0; }
+            .mobile-menu-toggle { display: block; }
+            .navbar .container { height: 70px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        }
+         @media (max-width: 576px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+         }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <!-- Changed link to index.html -->
+                <a href="index.html" class="logo">Drone Event View</a>
+                <ul class="nav-links">
+                     <!-- Changed links to point to index.html sections -->
+                    <li><a href="index.html#hero">ראשי</a></li>
+                    <li><a href="index.html#services">שירותים</a></li>
+                    <li><a href="gallery.html" class="active-page">גלריה</a></li>
+                    <li><a href="index.html#about">אודות</a></li>
+                    <li><a href="index.html#contact">צור קשר</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="תפריט ניווט" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+             <div class="container">
+                <h1>גלריית עבודות</h1>
+                <p style="max-width: 700px; margin: 1rem auto 0 auto; color: #555;">כאן תוכלו להתרשם ממגוון עבודות ופרויקטים שצילמנו מהשמיים. כל סרטון מספר סיפור, כל פריים לוכד רגש.</p>
+            </div>
+        </section>
+
+        <section id="gallery-full" class="gallery-section">
+             <div class="container">
+                <h2>הצצה לרגעים קסומים</h2>
+                <div class="gallery-grid">
+                    <!-- Row 1 -->
+                    <div class="gallery-item">
+                         <video autoplay muted loop playsinline preload="metadata">
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746418182/dji_fly_20250502_092814_787_1746174081785_video_ragzjb_z84mw0.mp4" type="video/mp4">
+                         </video>
+                    </div>
+                    <div class="gallery-item">
+                         <video autoplay muted loop playsinline preload="metadata">
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746419355/dji_fly_20250501_122718_709_1746115737082_video_sdhvnv_m8qsgb.mp4" type="video/mp4">
+                         </video>
+                    </div>
+                    <div class="gallery-item">
+                         <video autoplay muted loop playsinline preload="metadata">
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746419393/lv_0_20250428000358_mo9thj_kbdd4k.mp4" type="video/mp4">
+                         </video>
+                    </div>
+                    <!-- Row 2 -->
+                     <div class="gallery-item">
+                          <video autoplay muted loop playsinline preload="metadata">
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746419378/dji_fly_20250501_122136_698_1746115900587_video_kdsxfc_xarmhx.mp4" type="video/mp4">
+                          </video>
+                    </div>
+                     <div class="gallery-item">
+                          <video autoplay muted loop playsinline preload="metadata">
+                            <!-- Placeholder for another video -->
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746418182/dji_fly_20250502_092814_787_1746174081785_video_ragzjb_z84mw0.mp4" type="video/mp4">
+                          </video>
+                    </div>
+                     <div class="gallery-item">
+                         <video autoplay muted loop playsinline preload="metadata">
+                             <!-- Placeholder for another video -->
+                            <source src="https://res.cloudinary.com/df9awnz5a/video/upload/v1746419355/dji_fly_20250501_122718_709_1746115737082_video_sdhvnv_m8qsgb.mp4" type="video/mp4">
+                         </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+         <section style="background-color: var(--light-bg); text-align: center;">
+            <div class="container">
+                <h2>רוצים גם תיעוד כזה?</h2>
+                <p style="max-width: 600px; margin: -1rem auto 2rem auto;">האירוע שלכם יכול להיות הדבר הגדול הבא בגלריה. דברו איתי ונתכנן יחד את צילום החלומות שלכם.</p>
+                <a href="index.html#contact" class="cta-button">צרו קשר לתאריך שלכם</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> כל הזכויות שמורות ל-Drone Event View | רועי חנוני.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+                });
+            }
+
+            // Update Footer Year
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                 currentYearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
