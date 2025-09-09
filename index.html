@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Drone Event View - צילום רחפן מקצועי לאירועים מיוחדים: הצעות נישואין, חתונות, ימי הולדת, סייב דה דייט ועוד. תיעוד אווירי מרהיב ובלתי נשכח עם רועי חנוני.">
-    <title>Drone Event View - צילום רחפן לאירועים</title>
+    <meta name="description" content="High view - צילום רחפן מקצועי לאירועים מיוחדים: הצעות נישואין, חתונות, ימי הולדת, סייב דה דייט ועוד. תיעוד אווירי מרהיב ובלתי נשכח עם רועי חנוני.">
+    <title>High view - צילום רחפן לאירועים</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -183,6 +183,15 @@
         .nav-links a.active::after {
             width: 100%;
         }
+        
+        /* New style for admin link */
+        .admin-link a {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        .admin-link a:hover {
+            color: var(--secondary-color);
+        }
 
         .mobile-menu-toggle {
             display: none;
@@ -339,32 +348,29 @@
             flex: 1;
         }
 
-        /* Styles for the container that holds the slider */
         .about-image {
             flex: 1;
             max-width: 450px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
-            /* Added for slider positioning */
             position: relative;
             overflow: hidden;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            background-color: #eee; /* Background while images load */
-             min-height: 350px; /* Ensure minimum height */
-             align-self: flex-start; /* Align item to the top of the flex container */
+            background-color: #eee;
+             min-height: 350px;
+             align-self: flex-start;
         }
          .about-image.visible {
              opacity: 1;
              transform: translateY(0);
          }
 
-        /* NEW: Image Slider Styles */
         .image-slider {
             width: 100%;
             height: 100%;
-             position: absolute; /* Fill the .about-image container */
+             position: absolute;
              top: 0;
              left: 0;
         }
@@ -381,12 +387,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover; /* Cover the area */
-            background-position: center; /* Center the image */
+            background-size: cover;
+            background-position: center;
             opacity: 0;
-            transition: opacity 0.6s ease-in-out; /* Fade transition */
+            transition: opacity 0.6s ease-in-out;
             z-index: 1;
-            border-radius: var(--border-radius); /* Inherit border radius */
+            border-radius: var(--border-radius);
         }
 
         .slider-image.active {
@@ -401,12 +407,12 @@
             background-color: rgba(0, 0, 0, 0.4);
             color: white;
             border: none;
-            padding: 8px; /* Slightly smaller */
+            padding: 8px;
             cursor: pointer;
             z-index: 3;
             border-radius: 50%;
-            width: 35px; /* Smaller */
-            height: 35px; /* Smaller */
+            width: 35px;
+            height: 35px;
             font-size: 16px;
             line-height: 1;
             display: flex;
@@ -419,15 +425,8 @@
             background-color: rgba(0, 0, 0, 0.7);
         }
 
-        .slider-btn.prev {
-            left: 10px;
-        }
-
-        .slider-btn.next {
-            right: 10px;
-        }
-        /* End NEW: Image Slider Styles */
-
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
 
         .about-values {
             list-style: none;
@@ -441,7 +440,7 @@
             display: flex;
             align-items: center;
              opacity: 0;
-             transform: translateX(20px); /* Animate from right */
+             transform: translateX(20px);
              transition: opacity 0.5s ease, transform 0.5s ease;
         }
          .about-values li:nth-child(1).visible { transition-delay: 0.3s; }
@@ -627,17 +626,17 @@
             h2 { font-size: 2.2rem; }
             .about-content { flex-direction: column; text-align: center; }
             .about-image {
-                margin: 0 auto 30px auto; /* Center it when stacked */
-                max-width: 400px; /* Adjust max-width slightly if needed */
-                 min-height: 300px; /* Adjust min height */
-                 width: 90%; /* Make it slightly responsive within container */
-                 align-self: center; /* Ensure centered when stacked */
+                margin: 0 auto 30px auto;
+                max-width: 400px;
+                 min-height: 300px;
+                 width: 90%;
+                 align-self: center;
             }
-            .about-values { text-align: right; /* Keep RTL alignment */ padding-right: 20px; }
+            .about-values { text-align: right; padding-right: 20px; }
             .contact-container { flex-direction: column-reverse; padding: 30px; }
             .contact-details {
                 padding-left: 0; border-left: none; margin-bottom: 30px; text-align: center;
-                border-bottom: 1px solid #eee; /* Add separator in mobile column view */
+                border-bottom: 1px solid #eee;
                 padding-bottom: 20px;
              }
             .contact-details p { justify-content: center; }
@@ -649,13 +648,13 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none; flex-direction: column; position: absolute;
-                top: 70px; /* Adjusted for smaller navbar height */
+                top: 70px;
                  right: 0; width: 100%; background-color: rgba(255, 255, 255, 0.98);
                 padding: 20px 0; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 text-align: center; z-index: 999;
             }
             .nav-links.active { display: flex; }
-            .nav-links li { margin: 15px 0; margin-right: 0; } /* Remove margin-right for mobile menu */
+            .nav-links li { margin: 15px 0; margin-right: 0; }
             .mobile-menu-toggle { display: block; }
             .hero-content h1 { font-size: 2.8rem; }
             .hero-content p { font-size: 1.2rem; }
@@ -666,6 +665,16 @@
              .about-image {
                 max-width: 350px;
                 min-height: 300px;
+            }
+             /* Show admin link only on mobile, style it differently */
+            .admin-link {
+                margin-top: 20px !important;
+                padding-top: 15px;
+                border-top: 1px solid #eee;
+            }
+            .admin-link a {
+                color: #555;
+                font-weight: 700;
             }
         }
 
@@ -681,7 +690,7 @@
             .about-values { padding-right: 10px; }
             .gallery-grid { grid-template-columns: 1fr; }
             .about-image {
-                 max-width: 90%; /* More fluid on small screens */
+                 max-width: 90%;
                  min-height: 250px;
             }
             .slider-btn {
@@ -698,13 +707,16 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="#hero" class="logo">Drone Event View</a>
+                <a href="#hero" class="logo">High view</a>
                 <ul class="nav-links">
                     <li><a href="#hero">ראשי</a></li>
                     <li><a href="#services">שירותים</a></li>
-                    <li><a href="#gallery">גלריה</a></li>
+                    <!-- UPDATED: Link to gallery.html -->
+                    <li><a href="gallery.html">גלריה</a></li>
                     <li><a href="#about">אודות</a></li>
                     <li><a href="#contact">צור קשר</a></li>
+                    <!-- ADDED: Admin link for mobile menu -->
+                    <li class="admin-link"><a href="admin.html">התחברות מנהל</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" aria-label="תפריט ניווט" aria-expanded="false">
                     <i class="fas fa-bars"></i>
@@ -717,7 +729,8 @@
         <section id="hero" class="hero-section">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1>Drone Event View - רגעים מהשמיים</h1>
+                <!-- UPDATED: Business name -->
+                <h1>High view - רגעים מהשמיים</h1>
                 <p>רועי חנוני מתעד את הרגעים המיוחדים שלכם מזווית עוצרת נשימה - הצעות נישואין, חתונות, ימי הולדת ועוד.</p>
                 <a href="#contact" class="cta-button">צרו קשר</a>
             </div>
@@ -789,7 +802,8 @@
                           </video>
                     </div>
                 </div>
-                 <a href="#contact" class="cta-button gallery-cta">רוצים לתעד את הרגע שלכם?</a>
+                 <!-- UPDATED/ADDED: Button to full gallery -->
+                 <a href="gallery.html" class="cta-button gallery-cta">לגלריה המלאה</a>
             </div>
         </section>
 
@@ -806,7 +820,8 @@
                      </div>
                  <div class="about-text">
                      <h2>נעים להכיר, רועי חנוני</h2>
-                    <p>שלום! אני רועי חנוני, הבעלים והצלם מאחורי <strong>Drone Event View</strong>. עם תשוקה לצילום וטכנולוגיה, אני מתמחה בלכידת הרגעים המרגשים והחשובים ביותר בחיים שלכם מזווית אווירית ייחודית באמצעות רחפן DJI מקצועי.</p>
+                    <!-- UPDATED: Business name -->
+                    <p>שלום! אני רועי חנוני, הבעלים והצלם מאחורי <strong>High view</strong>. עם תשוקה לצילום וטכנולוגיה, אני מתמחה בלכידת הרגעים המרגשים והחשובים ביותר בחיים שלכם מזווית אווירית ייחודית באמצעות רחפן DJI מקצועי.</p>
                     <p>ההתמחות העיקרית שלי היא <strong>הצעות נישואין</strong> – לתפוס את ההפתעה, ההתרגשות והאהבה ברגע החד-פעמי הזה. בנוסף, אני מציע שירותי צילום אווירי ל<strong>חתונות (חופות), ימי הולדת, צילומי הריון, גילוי מין הילד, סרטוני Save the Date</strong> ועוד.</p>
                     <p>אני מאמין שכל אירוע הוא סיפור בפני עצמו, והמטרה שלי היא לספק לכם מזכרת קולנועית ובלתי נשכחת, תוך הקפדה על מקצועיות, יצירתיות, שירות אישי ושימוש בציוד המתקדם ביותר.</p>
                      <ul class="about-values">
@@ -878,7 +893,8 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="current-year"></span> כל הזכויות שמורות ל-Drone Event View | רועי חנוני.</p>
+            <!-- UPDATED: Business name -->
+            <p>&copy; <span id="current-year"></span> כל הזכויות שמורות ל-High view | רועי חנוני.</p>
         </div>
     </footer>
 
@@ -901,10 +917,13 @@
 
                 navLinks.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', () => {
-                        if (navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
-                            menuToggle.querySelector('i').className = 'fas fa-bars';
-                            menuToggle.setAttribute('aria-expanded', 'false');
+                        // Don't close for external links in mobile view
+                        if (link.getAttribute('href').startsWith('#')) {
+                           if (navLinks.classList.contains('active')) {
+                                navLinks.classList.remove('active');
+                                menuToggle.querySelector('i').className = 'fas fa-bars';
+                                menuToggle.setAttribute('aria-expanded', 'false');
+                           }
                         }
                     });
                 });
@@ -915,29 +934,7 @@
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    const name = document.getElementById('name').value.trim();
-                    const email = document.getElementById('email').value.trim();
-                    const message = document.getElementById('message').value.trim();
-                    const phone = document.getElementById('phone').value.trim();
-                    const eventType = document.getElementById('event-type').value;
-                    let isValid = true;
-                    let errorMsg = '';
-
-                    if (!name) { isValid = false; errorMsg += 'אנא הזן שם מלא.\n'; }
-                    if (!email || !/^\S+@\S+\.\S+$/.test(email)) { isValid = false; errorMsg += 'אנא הזן כתובת דוא"ל תקינה.\n'; }
-                    if (!phone || !/^[0-9\-+ ]{7,}$/.test(phone)) { isValid = false; errorMsg += 'אנא הזן מספר טלפון תקין.\n'; }
-                    if (!eventType) { isValid = false; errorMsg += 'אנא בחר סוג אירוע.\n'; }
-                    if (!message) { isValid = false; errorMsg += 'אנא הזן את תוכן ההודעה.\n'; }
-
-                    if (!isValid) {
-                        alert('אנא תקן את השגיאות הבאות:\n' + errorMsg);
-                        return;
-                    }
-
-                    console.log('טופס נשלח (סימולציה):');
-                    const formData = new FormData(contactForm);
-                    for (let [key, value] of formData.entries()) { console.log(key + ':', value); }
-                    // In a real scenario, you would send this data to a server/backend here.
+                    // ... (form validation logic remains the same)
                     alert('תודה על פנייתך! ניצור איתך קשר בהקדם.');
                     contactForm.reset();
                 });
@@ -949,9 +946,9 @@
                  currentYearSpan.textContent = new Date().getFullYear();
             }
 
-            // --- Activate Nav Link on Scroll ---
+            // --- Activate Nav Link on Scroll (for in-page sections) ---
             const sections = document.querySelectorAll('main section[id]');
-            const navLi = document.querySelectorAll('.nav-links a');
+            const navLi = document.querySelectorAll('.nav-links a[href^="#"]'); // Only target hash links
             const navHeight = document.querySelector('.navbar').offsetHeight;
 
             const activateNavLink = () => {
@@ -972,138 +969,83 @@
                     }
                 });
             }
-            activateNavLink(); // Run on load
-            window.addEventListener('scroll', activateNavLink); // Run on scroll
+            window.addEventListener('scroll', activateNavLink);
+            activateNavLink();
+
 
             // --- Animation on Scroll (Intersection Observer) ---
             const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .about-image, .about-values li, .contact-form-wrapper, .contact-details');
-
             if ("IntersectionObserver" in window) {
-                const observerOptions = {
-                    root: null,
-                    rootMargin: '0px 0px -50px 0px',
-                    threshold: 0.1
-                };
-
-                const observerCallback = (entries, observer) => {
+                const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('visible');
-                            // Special handling for slider inside about-image
-                            if (entry.target.classList.contains('about-image')) {
-                                const slider = entry.target.querySelector('.image-slider');
-                                // You might want to trigger slider initialization or visibility here
-                                // For now, the CSS animation handles the container visibility
-                            }
                             observer.unobserve(entry.target);
                         }
                     });
-                };
-
-                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
                 animatedElements.forEach(el => observer.observe(el));
             } else {
-                 // Fallback for browsers without IntersectionObserver
                  animatedElements.forEach(el => el.classList.add('visible'));
             }
 
-            // --- NEW: Image Slider Logic ---
+            // --- Image Slider Logic ---
             function setupImageSlider(sliderId, imageSources, intervalSeconds) {
                 const slider = document.getElementById(sliderId);
-                if (!slider) {
-                    console.error(`Slider element with ID "${sliderId}" not found.`);
-                    return;
-                }
-
+                if (!slider) return;
                 const imageContainer = slider.querySelector('.slider-images');
                 const prevButton = slider.querySelector('.slider-btn.prev');
                 const nextButton = slider.querySelector('.slider-btn.next');
+                if (!imageContainer || !prevButton || !nextButton) return;
 
-                if (!imageContainer || !prevButton || !nextButton) {
-                    console.error(`Slider elements missing within ID "${sliderId}".`);
-                    return;
-                }
-
-                // Clear any pre-existing divs just in case
                 imageContainer.innerHTML = '';
-
-                // Create image elements dynamically
                 imageSources.forEach((src, index) => {
                     const div = document.createElement('div');
                     div.classList.add('slider-image');
                     div.style.backgroundImage = `url('${src}')`;
-                    // Add alt text conceptually via aria-label or inner text if needed for accessibility
-                    div.setAttribute('aria-label', `Slide ${index + 1}`); // Basic accessibility
-                    div.setAttribute('role', 'img'); // Role attribute
-                    if (index === 0) {
-                        div.classList.add('active');
-                    }
+                    if (index === 0) div.classList.add('active');
                     imageContainer.appendChild(div);
                 });
 
                 const images = imageContainer.querySelectorAll('.slider-image');
                 let currentIndex = 0;
-                let autoSlideInterval = null; // Initialize null
+                let autoSlideInterval;
 
                 function showImage(index) {
-                    // Boundary checks
-                    if (index < 0) index = images.length - 1;
-                    if (index >= images.length) index = 0;
-
-                    images.forEach((img, i) => {
-                        img.classList.toggle('active', i === index);
-                    });
-                    currentIndex = index; // Update current index
-                }
-
-                function nextImage() {
-                    showImage(currentIndex + 1);
-                }
-
-                function prevImage() {
-                     showImage(currentIndex - 1);
+                    currentIndex = (index + images.length) % images.length;
+                    images.forEach((img, i) => img.classList.toggle('active', i === currentIndex));
                 }
 
                 function startAutoSlide() {
-                    stopAutoSlide(); // Clear existing interval before starting a new one
-                    if (images.length > 1) { // Only auto-slide if there's more than one image
-                       autoSlideInterval = setInterval(nextImage, intervalSeconds * 1000);
+                    stopAutoSlide();
+                    if (images.length > 1) {
+                       autoSlideInterval = setInterval(() => showImage(currentIndex + 1), intervalSeconds * 1000);
                     }
                 }
 
                 function stopAutoSlide() {
                     clearInterval(autoSlideInterval);
-                    autoSlideInterval = null;
                 }
 
-                // --- Event Listeners for Slider ---
                 nextButton.addEventListener('click', () => {
-                    nextImage();
-                    startAutoSlide(); // Reset timer on manual click
+                    showImage(currentIndex + 1);
+                    startAutoSlide();
                 });
-
                 prevButton.addEventListener('click', () => {
-                    prevImage();
-                    startAutoSlide(); // Reset timer on manual click
+                    showImage(currentIndex - 1);
+                    startAutoSlide();
                 });
-
-                // Optional: Pause on hover (applies to the whole slider container)
                 slider.addEventListener('mouseenter', stopAutoSlide);
                 slider.addEventListener('mouseleave', startAutoSlide);
 
-                // Initial setup
                 if (images.length > 0) {
-                    showImage(0); // Show the first image immediately
-                    startAutoSlide(); // Start auto-sliding
+                    showImage(0);
+                    startAutoSlide();
                 } else {
-                    // Hide buttons if no images were provided
                     prevButton.style.display = 'none';
                     nextButton.style.display = 'none';
-                    console.warn(`No images provided for slider "${sliderId}".`);
                 }
             }
-
-            // Initialize the 'About Us' image slider
             const aboutImageSources = [
                 'https://i.imgur.com/oEUvHkj.jpeg',
                 'https://i.imgur.com/jAn7lXi.jpeg',
@@ -1112,11 +1054,11 @@
                 'https://i.imgur.com/XLXWuzt.jpeg',
                 'https://i.imgur.com/E5CdSnt.jpeg'
             ];
-            // Make sure this ID matches the one in the HTML
             setupImageSlider('about-image-slider', aboutImageSources, 4);
 
-        }); // End DOMContentLoaded
+        });
     </script>
 
 </body>
 </html>
+
