@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול - Drone Event View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a4a7d;
+            --secondary-color: #f7a072;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            direction: rtl;
+        }
+
+        .admin-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            color: var(--light-text);
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        header a {
+            color: var(--light-text);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        .admin-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+
+        .admin-card h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="url"],
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-family: 'Assistant', sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+        }
+
+        .btn:hover {
+            background-color: #e58a5a;
+        }
+
+        .submissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .submissions-table th,
+        .submissions-table td {
+            padding: 12px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .submissions-table th {
+            background-color: #f2f2f2;
+            font-weight: 700;
+        }
+
+        .submissions-table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <header>
+            <h1>לוח בקרה - Drone Event View</h1>
+            <a href="index.html">חזור לאתר הראשי</a>
+        </header>
+
+        <main>
+            <div class="admin-card">
+                <h2>הוספת פריט חדש לגלריה</h2>
+                <form id="add-gallery-item-form">
+                    <div class="form-group">
+                        <label for="video-url">כתובת URL של הסרטון:</label>
+                        <input type="url" id="video-url" name="video-url" placeholder="https://res.cloudinary.com/..." required>
+                    </div>
+                     <div class="form-group">
+                        <label for="category">קטגוריה:</label>
+                        <select id="category" name="category" required>
+                            <option value="">בחר קטגוריה...</option>
+                            <option value="proposal">הצעת נישואין</option>
+                            <option value="wedding">חתונה</option>
+                            <option value="birthday">יום הולדת</option>
+                            <option value="other">אחר</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">הוסף לגלריה</button>
+                </form>
+            </div>
+
+            <div class="admin-card">
+                <h2>ניהול פניות (טופס יצירת קשר)</h2>
+                <div style="overflow-x: auto;">
+                    <table class="submissions-table">
+                        <thead>
+                            <tr>
+                                <th>שם</th>
+                                <th>טלפון</th>
+                                <th>סוג אירוע</th>
+                                <th>תאריך</th>
+                                <th>פעולות</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be added dynamically here by JS in a real app -->
+                            <tr>
+                                <td>ישראל ישראלי</td>
+                                <td>050-1234567</td>
+                                <td>הצעת נישואין</td>
+                                <td>2025-10-15</td>
+                                <td><a href="#">הצג פרטים</a></td>
+                            </tr>
+                             <tr>
+                                <td>דנה כהן</td>
+                                <td>052-9876543</td>
+                                <td>חתונה / חופה</td>
+                                <td>2026-05-20</td>
+                                <td><a href="#">הצג פרטים</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
+
